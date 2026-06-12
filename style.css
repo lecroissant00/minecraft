@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #000;
+    font-family: Arial, sans-serif;
+}
+
+#canvas-container {
+    width: 100%;
+    height: 100%;
+}
+
+#ui {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    color: white;
+    font-size: 14px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+#crosshair {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid white;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+#crosshair::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 4px;
+    height: 4px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+#info {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 15px;
+    border-radius: 8px;
+    max-width: 400px;
+}
+
+#info p {
+    margin: 5px 0;
+    font-size: 12px;
+}
+
+#controls {
+    margin-top: 10px;
+    font-size: 11px;
+    color: #aaa;
+}
+
+#hotbar {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 5px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.hotbar-slot {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #888;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: rgba(100, 100, 100, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    font-size: 10px;
+    color: white;
+}
+
+.hotbar-slot:hover {
+    background-color: rgba(120, 120, 120, 0.7);
+}
+
+.hotbar-slot.selected {
+    border: 3px solid #fff;
+    background-color: rgba(150, 150, 150, 0.7);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.hotbar-slot::before {
+    content: attr(data-block);
+    font-weight: bold;
+    text-transform: capitalize;
+    font-size: 9px;
+}
