@@ -1,47 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To-Do List App</title>
+    <title>Minecraft To-Do List</title>
     <link rel="stylesheet" href="todo-style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="todo-app">
-            <h1>My To-Do List</h1>
+    <div id="game-container">
+        <canvas id="gameCanvas"></canvas>
+        
+        <!-- HUD -->
+        <div id="hud">
+            <div id="info-box" class="minecraft-box">
+                <div id="position">Position: 0, 0, 0</div>
+                <div id="block-selected">Block sélectionné: dirt</div>
+            </div>
             
-            <div class="input-section">
-                <input 
-                    type="text" 
-                    id="todoInput" 
-                    placeholder="Add a new task..." 
-                    class="todo-input"
-                >
-                <button id="addBtn" class="add-btn">Add Task</button>
+            <!-- Hotbar -->
+            <div id="hotbar" class="minecraft-box">
+                <div class="hotbar-item selected" data-block="dirt">
+                    <div class="block-icon dirt-icon"></div>
+                    <span>Dirt</span>
+                </div>
+                <div class="hotbar-item" data-block="grass">
+                    <div class="block-icon grass-icon"></div>
+                    <span>Grass</span>
+                </div>
+                <div class="hotbar-item" data-block="stone">
+                    <div class="block-icon stone-icon"></div>
+                    <span>Stone</span>
+                </div>
+                <div class="hotbar-item" data-block="wood">
+                    <div class="block-icon wood-icon"></div>
+                    <span>Wood</span>
+                </div>
+                <div class="hotbar-item" data-block="sand">
+                    <div class="block-icon sand-icon"></div>
+                    <span>Sand</span>
+                </div>
+                <div class="hotbar-item" data-block="water">
+                    <div class="block-icon water-icon"></div>
+                    <span>Water</span>
+                </div>
+                <div class="hotbar-item" data-block="lava">
+                    <div class="block-icon lava-icon"></div>
+                    <span>Lava</span>
+                </div>
+                <div class="hotbar-item" data-block="glass">
+                    <div class="block-icon glass-icon"></div>
+                    <span>Glass</span>
+                </div>
+                <div class="hotbar-item" data-block="cobblestone">
+                    <div class="block-icon cobblestone-icon"></div>
+                    <span>Cobble</span>
+                </div>
             </div>
-
-            <div class="filter-section">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="active">Active</button>
-                <button class="filter-btn" data-filter="completed">Completed</button>
-            </div>
-
-            <div class="stats">
-                <span>Total: <strong id="totalCount">0</strong></span>
-                <span>Active: <strong id="activeCount">0</strong></span>
-                <span>Completed: <strong id="completedCount">0</strong></span>
-            </div>
-
-            <ul id="todoList" class="todo-list"></ul>
-
-            <div class="action-buttons">
-                <button id="clearCompleted" class="clear-btn">Clear Completed</button>
-                <button id="clearAll" class="danger-btn">Clear All</button>
+            
+            <!-- Crosshair -->
+            <div id="crosshair"></div>
+            
+            <!-- Todo List Panel -->
+            <div id="todo-panel" class="minecraft-box">
+                <div id="todo-input-section">
+                    <input 
+                        type="text" 
+                        id="todoInput" 
+                        placeholder="Ajoute une tâche..."
+                        class="minecraft-input"
+                    >
+                    <button id="addBtn" class="minecraft-button">Ajouter</button>
+                </div>
+                
+                <div id="todo-stats">
+                    <span>Total: <strong id="totalCount">0</strong></span>
+                    <span>Active: <strong id="activeCount">0</strong></span>
+                    <span>✓ <strong id="completedCount">0</strong></span>
+                </div>
+                
+                <div id="todo-filters">
+                    <button class="filter-btn active" data-filter="all">Tous</button>
+                    <button class="filter-btn" data-filter="active">Actif</button>
+                    <button class="filter-btn" data-filter="completed">✓ Fait</button>
+                </div>
+                
+                <ul id="todoList" class="todo-list"></ul>
+                
+                <div id="todo-actions">
+                    <button id="clearCompleted" class="minecraft-button small">Effacer ✓</button>
+                    <button id="clearAll" class="minecraft-button small danger">Effacer tout</button>
+                </div>
             </div>
         </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="todo-script.js"></script>
 </body>
 </html>
