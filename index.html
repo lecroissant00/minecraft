@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Clone</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <div id="canvas-container"></div>
+    <div id="ui">
+        <div id="hotbar">
+            <div class="hotbar-slot selected" data-block="dirt"></div>
+            <div class="hotbar-slot" data-block="grass"></div>
+            <div class="hotbar-slot" data-block="stone"></div>
+            <div class="hotbar-slot" data-block="wood"></div>
+            <div class="hotbar-slot" data-block="sand"></div>
+            <div class="hotbar-slot" data-block="water"></div>
+            <div class="hotbar-slot" data-block="lava"></div>
+            <div class="hotbar-slot" data-block="glass"></div>
+            <div class="hotbar-slot" data-block="cobblestone"></div>
+        </div>
+        <div id="crosshair"></div>
+        <div id="info">
+            <p>Position: <span id="pos">0, 0, 0</span></p>
+            <p>Block sélectionné: <span id="selected-block">dirt</span></p>
+            <p id="controls">
+                ZQSD: Mouvement | Souris: Regarder | Clic gauche: Détruire | Clic droit: Placer<br>
+                Espace: Sauter | Espace 2x: Voler | Roulette: Changer bloc
+            </p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
